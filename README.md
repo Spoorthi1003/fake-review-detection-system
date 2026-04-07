@@ -49,7 +49,7 @@ Users were assigned a fraud score based on:
 
 ## Dashboard Preview
 
-![Dashboard](images/dashboard_screenshot.png)
+![Dashboard](images/dashboard.png)
 
 ---
 
@@ -62,7 +62,7 @@ Users were assigned a fraud score based on:
 ---
 
 ## Project Structure
-
+'''
 fake-review-detection-system/
 │
 ├── data/
@@ -89,7 +89,7 @@ fake-review-detection-system/
 |   └── percentage_suspicious_reviews.png
 │
 ├── README.md
-
+'''
 ---
 
 ## How to Run
