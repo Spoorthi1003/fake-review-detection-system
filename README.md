@@ -62,7 +62,7 @@ Users were assigned a fraud score based on:
 ---
 
 ## Project Structure
-'''
+```
 fake-review-detection-system/
 │
 ├── data/
@@ -89,7 +89,7 @@ fake-review-detection-system/
 |   └── percentage_suspicious_reviews.png
 │
 ├── README.md
-'''
+```
 ---
 
 ## How to Run
