@@ -6,6 +6,38 @@ This project focuses on identifying suspicious and potentially fake reviews in a
 The goal is to detect abnormal user behavior, suspicious products, and quantify the impact of fake reviews.
 
 ---
+## Business Problem
+
+Online platforms rely heavily on user reviews to influence customer purchasing decisions. However, fake or manipulated reviews can mislead customers, damage trust, and impact business credibility.
+
+The challenge is to:
+- Identify suspicious users who may be posting fake reviews
+- Detect products that are targets of review manipulation
+- Quantify the extent of fraudulent activity
+- Provide actionable insights for monitoring and prevention
+
+This project aims to address these challenges using data analytics techniques.
+
+---
+## Approach
+
+- Cleaned and preprocessed raw review data (date conversion, text cleaning)
+- Loaded dataset into MySQL for efficient querying
+- Performed exploratory analysis on user behavior and product trends
+- Built a rule-based fraud detection model using:
+  - Extreme ratings (1 or 5)
+  - High review frequency
+  - Multiple reviews in a single day
+- Identified suspicious users and products based on fraud score
+- Calculated % of suspicious reviews to measure impact
+- Visualized insights using Python and created a dashboard in Excel
+
+---
+
+## Dataset Used
+Amazon Fine Food Reviews - https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
+
+---
 
 ##  Objectives
 - Detect suspicious users based on behavior patterns
@@ -61,6 +93,13 @@ Users were assigned a fraud score based on:
 
 ---
 
+## Business Impact
+- Helps identify fraudulent users and prevent misuse
+- Improves trust in review systems
+- Enables targeted monitoring of high-risk products
+
+---
+
 ## Project Structure
 ```
 fake-review-detection-system/
@@ -95,7 +134,7 @@ fake-review-detection-system/
 ## How to Run
 
 1. Load dataset into MySQL
-2. Run SQL queries from `analysis_queries.sql`
+2. Run SQL queries from `analysis.sql`
 3. Run Python script: charts.py
 4. Open Excel dashboard
 
