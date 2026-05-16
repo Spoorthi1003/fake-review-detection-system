@@ -25,7 +25,7 @@ This project aims to address these challenges using data analytics techniques.
 - Loaded dataset into MySQL for efficient querying
 - Performed exploratory analysis on user behavior and product trends
 - Built a rule-based fraud detection model using:
-  - Extreme ratings (1 or 5)
+  - Extreme ratings (<=1.5 or >=4.5)
   - High review frequency
   - Multiple reviews in a single day
 - Identified suspicious users and products based on fraud score
@@ -49,7 +49,7 @@ Amazon Fine Food Reviews - https://www.kaggle.com/datasets/snap/amazon-fine-food
 
 ## Tools & Technologies
 - SQL (MySQL)
-- Python (Pandas, Matplotlib, Seaborn)
+- Python (Pandas, Matplotlib, Seaborn, Data cleaning)
 - Excel (Dashboard & Visualization)
 
 ---
@@ -57,7 +57,7 @@ Amazon Fine Food Reviews - https://www.kaggle.com/datasets/snap/amazon-fine-food
 ## Key Analysis Performed
 
 ### 1. User Fraud Detection
-- Users with extreme ratings (1 or 5)
+- Users with extreme ratings (Average rating in the range: <=1.5 or >=4.5)
 - High number of reviews
 - Multiple reviews in a single day
 
@@ -87,7 +87,6 @@ Users were assigned a fraud score based on:
 
 ## Key Insights
 - Certain products have more than 15% suspicious reviews
-- High-risk users show extreme rating behavior (1 or 5)
 - Review spikes of up to 50 reviews/day indicate coordinated activity
 - Suspicious reviews account for a small percentage overall but are concentrated on specific products
 
@@ -120,7 +119,6 @@ fake-review-detection-system/
 │
 ├── images/
 │   └── dashboard.png
-|   └── dashboard2.png
 |   └── fraud_score.png
 |   └── rating_distribution.png
 |   └── spike_detection.png
