@@ -1,7 +1,7 @@
 #  Fake Review Detection System
 
 ## Overview
-This project focuses on identifying suspicious and potentially fake reviews in an e-commerce dataset using SQL, Python, and Excel.
+This project focuses on identifying suspicious and potentially fake reviews in an e-commerce dataset using SQL, Python, Power BI and Excel.
 
 The goal is to detect abnormal user behavior, suspicious products, and quantify the impact of fake reviews.
 
@@ -50,7 +50,8 @@ Amazon Fine Food Reviews - https://www.kaggle.com/datasets/snap/amazon-fine-food
 ## Tools & Technologies
 - SQL (MySQL)
 - Python (Pandas, Matplotlib, Seaborn, Data cleaning)
-- Excel (Dashboard & Visualization)
+- Excel (Visualization)
+- Power BI (Final Dashboard)
 
 ---
 
@@ -81,7 +82,7 @@ Users were assigned a fraud score based on:
 
 ## Dashboard Preview
 
-![Dashboard](images/dashboard.png)
+![Dashboard](images/dashboard_powerbi.png)
 
 ---
 
