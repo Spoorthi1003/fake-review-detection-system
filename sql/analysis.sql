@@ -57,6 +57,7 @@ SELECT * FROM score;
 SELECT * FROM scoring_users;
 
  -- Top 5 products with most suspicious reviews
+CREATE VIEW top_suspicious_products_view AS
 WITH suspicious_reviews AS(
 SELECT r.product_id, COUNT(*) AS suspicious_review_cnt
 FROM reviews r JOIN
@@ -74,7 +75,10 @@ FROM rankings
 WHERE ranks <=5
 ORDER BY suspicious_review_cnt DESC ;
 
+SELECT * FROM top_suspicious_products_view;
+
 -- Top 5 products with highest % suspicious reviews
+CREATE VIEW suspicious_review_percentage_view AS
 WITH total_reviews AS (
 SELECT product_id, COUNT(*) AS total
 FROM reviews
@@ -83,7 +87,7 @@ GROUP BY product_id
 suspicious_reviews AS (
 SELECT r.product_id, t.total, 
 COUNT(*) AS suspicious_review_cnt,
-CONCAT(ROUND(COUNT(*)*100.0/t.total,1),'%') 
+ROUND(COUNT(*)*100.0/t.total,1)
 AS percent_suspicious_reviews
 FROM reviews r JOIN total_reviews t
 ON r.product_id = t.product_id 
@@ -102,6 +106,8 @@ percent_suspicious_reviews
 FROM ranking
 WHERE ranks <= 5
 ORDER BY percent_suspicious_reviews DESC;
+
+SELECT * FROM suspicious_review_percentage_view;
 
 -- Total suspicious reviews
 SELECT COUNT(*) AS suspicious_reviews
@@ -126,6 +132,7 @@ HAVING COUNT(*) > 20
 ORDER BY review_per_day DESC;
 
 -- Distribution of ratings
+CREATE VIEW rating_distribution_view AS
 SELECT s.fraud_score , r.rating,
 COUNT(*) AS review_count
 FROM scoring_users s JOIN
@@ -133,6 +140,8 @@ reviews r
 ON r.user_id = s.user_id
 GROUP BY s.fraud_score, r.rating
 ORDER BY s.fraud_score DESC;
+
+SELECT * FROM rating_distribution_view;
 
 -- Time gap between first and last review
 SELECT user_id , MIN(review_date) AS first_active,
@@ -143,3 +152,15 @@ FROM reviews
 GROUP BY user_id
 HAVING total_reviews > 20 AND active_days <= 100
 ORDER BY active_days;
+
+-- View for review spike analysis
+CREATE VIEW review_spike_view AS
+SELECT 
+    product_id,
+    DATE(review_date) AS review_day,
+    COUNT(*) AS reviews_per_day
+FROM reviews
+GROUP BY product_id, DATE(review_date)
+ORDER BY COUNT(*) DESC;
+
+SELECT * FROM review_spike_view;
